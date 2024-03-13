@@ -1,0 +1,33 @@
+.logo-txt{
+    font-weight: 700;
+    font-size: 1.8em;
+  }
+  #separator-sidebar{
+    background-color: #F9FBFC;
+    color: #090B11;
+  }
+  #dropdown-cta{
+    background-color: #4E8AB4;
+    /* margin: 0 0 1em 0; */
+  }
+  
+  #actualiza{
+    font-weight: 700;
+    font-size: 1.3em;
+    text-align: right;
+  }
+  #mejoras{
+    font-size: 1em;
+    display: block;
+    text-align: right;
+    text-decoration: underline;
+    color: #243160;
+    font-weight: 600;
+  
+  }
+  .elem{
+    background-color: #96BFDC;
+  }
+  .elem:hoover{
+    background-color: #243160;
+  }
