@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlacesService } from '../../services/places.service';
 
 @Component({
   selector: 'app-map-view',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './map-view.component.css'
 })
 export class MapViewComponent {
+  // constructor( private placesService: PlacesService){
 
+  // }
+  // ngOnInit(): void {
+  //   console.log(this.placesService.userLocation);
+  // }
 }
