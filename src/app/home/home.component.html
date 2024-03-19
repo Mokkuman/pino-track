@@ -1,6 +1,9 @@
-<app-sidebar />
-<app-loading *ngIf="!isUserLocationReady; else mapReady"></app-loading>
-<ng-template #mapReady>
+<!-- <app-sidebar /> -->
+<app-loading *ngIf="!isUserLocationReady;"></app-loading>
+<!-- <ng-template #mapReady>
     
     <app-map-view />
-</ng-template>
+</ng-template> -->
+
+
+<app-map-view/>
