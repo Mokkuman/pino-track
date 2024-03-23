@@ -29,30 +29,9 @@ export const routes: Routes = [
         title: "Configuration", 
         component: ConfigComponent
     },
+    {
+        path: "notif/:idUser",
+        title: "Notifications" ,
+        component: NotifComponent
+    },
 ];
-// {
-//     path: '/',
-//     component: SidebarComponent,
-//     children:[
-//         {
-//             path: "about",
-//             title: "About Page",
-//             component: AboutComponent,
-//         },
-//         {
-//             path: "login",
-//             title: "Login Page",
-//             component: LoginComponent,
-//         },
-//         {
-//             path: "config/:idUser",
-//             title: "Configuration", 
-//             component: ConfigComponent
-//         },
-//         {
-//             path: "notif/:idUser",
-//             title: "Notifications" ,
-//             component: NotifComponent
-//         },
-//     ],
-// },
