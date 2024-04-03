@@ -41,3 +41,12 @@
   /* .main-content.open{
     transition: translateX(100%);
   } */
+
+#rocket{
+  width: 4em;
+  filter: invert(100%) sepia(92%) saturate(2839%) hue-rotate(169deg) brightness(87%) contrast(96%);
+  z-index: 1;
+}
+#dropdown-cta{
+  z-index: 10;
+}

@@ -6,6 +6,8 @@ import { AboutComponent } from './sidebar/pages/about/about.component';
 import { ConfigComponent } from './sidebar/pages/config/config.component';
 import { NotifComponent } from './sidebar/pages/notif/notif.component';
 import { SignComponent } from './sidebar/pages/sign/sign.component';
+import { FavsComponent } from './footer/pages/favs/favs.component';
+import { LatestComponent } from './footer/pages/latest/latest.component';
 export const routes: Routes = [
     {
         path: '',
@@ -33,5 +35,15 @@ export const routes: Routes = [
         path: "notif/:idUser",
         title: "Notifications" ,
         component: NotifComponent
+    },
+    {
+        path: "favs/:idUser",
+        title: "Favorites",
+        component: FavsComponent
+    },
+    {
+        path: "last/:idUser",
+        title: "Latest",
+        component: LatestComponent
     },
 ];
