@@ -8,6 +8,7 @@ import { NotifComponent } from './sidebar/pages/notif/notif.component';
 import { SignComponent } from './sidebar/pages/sign/sign.component';
 import { FavsComponent } from './footer/pages/favs/favs.component';
 import { LatestComponent } from './footer/pages/latest/latest.component';
+import { UpgradeComponent } from './sidebar/pages/upgrade/upgrade.component';
 export const routes: Routes = [
     {
         path: '',
@@ -45,5 +46,10 @@ export const routes: Routes = [
         path: "last/:idUser",
         title: "Latest",
         component: LatestComponent
+    },
+    {
+        path: "upgrade",
+        title: "Upgrade",
+        component: UpgradeComponent
     },
 ];

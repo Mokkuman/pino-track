@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { PlacesService } from './services/places.service';
+import { PlacesService } from '../services/places.service';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [],
+  imports: [GoogleMapsModule,GoogleMap],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
