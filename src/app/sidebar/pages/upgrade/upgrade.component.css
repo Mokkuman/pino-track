@@ -1,0 +1,13 @@
+.btn {
+    background-color: #96BFDC;
+    /* border: none; */
+    padding: 1em;
+    /* text-decoration: none; */
+    justify-content: right;
+    
+  }
+  
+.btn:hoover {
+    background-color: #243160;
+}
+  
