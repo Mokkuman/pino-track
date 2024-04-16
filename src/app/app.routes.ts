@@ -9,6 +9,9 @@ import { SignComponent } from './sidebar/pages/sign/sign.component';
 import { FavsComponent } from './footer/pages/favs/favs.component';
 import { LatestComponent } from './footer/pages/latest/latest.component';
 import { UpgradeComponent } from './sidebar/pages/upgrade/upgrade.component';
+import { Component } from '@angular/core';
+import { PrivacidadComponent } from './sidebar/pages/config/pages/privacidad/privacidad.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 export const routes: Routes = [
     {
         path: '',
@@ -30,7 +33,14 @@ export const routes: Routes = [
     {
         path: "config/:idUser",
         title: "Configuration", 
-        component: ConfigComponent
+        component: ConfigComponent,
+        children: [
+            {
+                path: "privacidad",
+                title: "privacidad",
+                component: PrivacidadComponent
+            }
+        ]
     },
     {
         path: "notif/:idUser",
@@ -52,4 +62,9 @@ export const routes: Routes = [
         title: "Upgrade",
         component: UpgradeComponent
     },
+    { 
+        path: '**', 
+        pathMatch: 'full',
+        component: PagenotfoundComponent
+    },  // Wildcard route for a 404 page
 ];
