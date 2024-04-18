@@ -1,5 +1,8 @@
-<p>map-view works!</p>
-<!-- <google-map
-height="500px"
-  width="100%"
-></google-map> -->
+<!-- <p>map-view works!</p> -->
+<div class="map mx-auto">
+  <google-map [options]="options" height="100%">
+    <map-marker [options]="markerOpts" [position]="marker_pos"></map-marker>
+  </google-map>
+
+</div>
+

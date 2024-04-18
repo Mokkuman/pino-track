@@ -19,8 +19,9 @@ export class PlacesService {
       //tiene la posicion como se va moviendo
       navigator.geolocation.watchPosition(
         ({coords}) => {
-          this.userLocation = [coords.longitude, coords.latitude];//para mapbox
-          resolve(this.userLocation)
+          // this.userLocation = [coords.longitude, coords.latitude];//para mapbox
+          this.userLocation = [coords.latitude, coords.longitude];//para mapbox
+          resolve(this.userLocation);
         },
         (err) => {
           alert("No se ha podido obtener la geolocalización");
