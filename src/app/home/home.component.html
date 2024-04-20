@@ -1,6 +1,5 @@
 <!-- <app-sidebar /> -->
 
-{{isUserLocationReady}}
 <app-loading *ngIf="!isUserLocationReady; else mapReady" ></app-loading>
 <ng-template #mapReady>
     

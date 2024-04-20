@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class PlacesService {
   public userLocation?: [number, number]; //? indica que es opcional
+  
   
   get isUserLocationReady(): boolean{
     return !!this.userLocation;
