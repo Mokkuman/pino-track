@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { PlacesService } from '../../../services/places.service';
-import { GoogleMap, MapAdvancedMarker, MapMarker,  } from '@angular/google-maps';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-map-view',
   standalone: true,
-  imports: [GoogleMap, MapMarker, MapAdvancedMarker],
+  imports: [GoogleMapsModule],
   templateUrl: './map-view.component.html',
   styleUrl: './map-view.component.css'
 })
@@ -22,7 +22,7 @@ export class MapViewComponent {
   }
 
   getUserLocation(): void {
-    this.placesService.getUserLocation()
+    this.placesService.getUserLocationService()
       .then(location => {
         this.userLocation = location;
         console.log("User location:", this.userLocation);
@@ -34,6 +34,7 @@ export class MapViewComponent {
           streetViewControl: false,
           maxZoom: 20,
           minZoom: 8,
+          fullscreenControl:  false
         };
         this.markerOpts = {draggable: false};
         this.marker_pos = {lat: this.userLocation[0], lng: this.userLocation[1]};

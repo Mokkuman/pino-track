@@ -17,8 +17,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   constructor(private placesService: PlacesService){
-    
-  }
+}
   get isUserLocationReady(){
     return this.placesService.isUserLocationReady;
   }

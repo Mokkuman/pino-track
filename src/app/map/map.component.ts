@@ -7,7 +7,7 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
   standalone: true,
   imports: [GoogleMapsModule,GoogleMap],
   templateUrl: './map.component.html',
-  styleUrl: './map.component.css'
+  styleUrl: './map.component.css',
 })
 export class MapComponent {
   constructor(private placesService: PlacesService){

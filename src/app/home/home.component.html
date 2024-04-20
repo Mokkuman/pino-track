@@ -1,9 +1,10 @@
 <!-- <app-sidebar /> -->
+
+{{isUserLocationReady}}
 <app-loading *ngIf="!isUserLocationReady; else mapReady" ></app-loading>
 <ng-template #mapReady>
     
     <app-map-view />
+    
+    
 </ng-template>
-
-
-<app-map-view/>

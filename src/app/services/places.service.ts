@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,10 +12,11 @@ export class PlacesService {
   }
 
   constructor() { 
-    this.getUserLocation();
+    this.getUserLocationService();
   }
 
-  public getUserLocation():Promise <[number, number]>{
+  public getUserLocationService():Promise <[number, number]>{
+
     return new Promise ((resolve, reject) =>{
       //tiene la posicion como se va moviendo
       navigator.geolocation.watchPosition(
@@ -32,7 +34,11 @@ export class PlacesService {
 
       );
       // navigator.geolocation.getCurrentPosition(); //solo lo toma una vez
-
     });
+  }
+
+  public getPlacesByQuery(query: string = ''){
+    // todo: cuando query es vacio, que sea required el campo y que muestre alerta
+    // this.http.get()
   }
 }
