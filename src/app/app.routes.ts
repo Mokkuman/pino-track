@@ -9,13 +9,17 @@ import { SignComponent } from './sidebar/pages/sign/sign.component';
 import { FavsComponent } from './footer/pages/favs/favs.component';
 import { LatestComponent } from './footer/pages/latest/latest.component';
 import { UpgradeComponent } from './sidebar/pages/upgrade/upgrade.component';
-import { Component } from '@angular/core';
 import { PrivacidadComponent } from './sidebar/pages/config/pages/privacidad/privacidad.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DireccionesComponent } from './direcciones/direcciones.component';
 export const routes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'dirs',
+        component: DireccionesComponent
     },
     {
         path: 'login',
