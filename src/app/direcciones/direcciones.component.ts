@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, NgZone, OnInit, Output, ViewChild 
 import { SharedDataService } from '../services/shared-data.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PlacesService } from '../services/places.service';
 
 
 export interface PlaceSearchResult {
@@ -34,16 +35,41 @@ export class DireccionesComponent implements OnInit{
   
   query:string = '';
   place:string = '';
+  userLocation: [number, number] | undefined;
+  address: string = '';
+  geocoder = new google.maps.Geocoder();
+  latlng: any;
+
 
   autocomplete: google.maps.places.Autocomplete | undefined;
 
-  constructor(private sharedDataService: SharedDataService, private ngZone: NgZone){}
+  constructor(private sharedDataService: SharedDataService, private ngZone: NgZone, private placesService: PlacesService){}
 
   ngOnInit(): void {
     this.sharedDataService.inputData$.subscribe(data=>{
       this.query = data;
     });
 
+    this.placesService.getUserLocationService()
+      .then(location => {
+        // this.userLocation = location;
+        // console.log("User location:", this.userLocation);
+        this.latlng = new google.maps.LatLng(location[0], location[1]);
+        this.geocoder
+        .geocode({location: this.latlng})
+        .then((response) => {
+          if(response.results[0]){
+            this.address = response.results[0].formatted_address;
+          }else{
+            alert("No address found");
+          }
+        })
+        .catch((e) => alert("Geocoder failed due to: "+e));
+      })
+      .catch(error => {
+        console.error("Error getting user location:", error);
+      });
+    
   }
 
   ngAfterViewInit(): void {
@@ -77,5 +103,9 @@ export class DireccionesComponent implements OnInit{
     if (this.autocomplete) {
       google.maps.event.clearInstanceListeners(this.autocomplete);
     }
+  }
+
+  showMap(event:any){
+    console.log("redirigir a mapa xd")
   }
 }
