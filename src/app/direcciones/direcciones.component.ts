@@ -3,6 +3,9 @@ import { SharedDataService } from '../services/shared-data.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PlacesService } from '../services/places.service';
+import { LatestComponent } from '../footer/pages/latest/latest.component';
+import { Router } from '@angular/router';
+import { MapComponent } from '../map/map.component';
 
 
 export interface PlaceSearchResult {
@@ -14,10 +17,11 @@ export interface PlaceSearchResult {
 @Component({
   selector: 'app-direcciones',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, LatestComponent, MapComponent],
   templateUrl: './direcciones.component.html',
   styleUrl: './direcciones.component.css'
 })
+
 export class DireccionesComponent implements OnInit{
 
   // https://netbasal.com/autofocus-that-works-anytime-in-angular-apps-68cb89a3f057
@@ -32,7 +36,6 @@ export class DireccionesComponent implements OnInit{
 
   @Output() placeChanged = new EventEmitter<PlaceSearchResult>();
 
-  
   query:string = '';
   place:string = '';
   userLocation: [number, number] | undefined;
@@ -43,14 +46,29 @@ export class DireccionesComponent implements OnInit{
 
   autocomplete: google.maps.places.Autocomplete | undefined;
 
-  constructor(private sharedDataService: SharedDataService, private ngZone: NgZone, private placesService: PlacesService){}
+  constructor(private sharedDataService: SharedDataService, private ngZone: NgZone, private placesService: PlacesService, private router: Router){}
 
   ngOnInit(): void {
     this.sharedDataService.inputData$.subscribe(data=>{
       this.query = data;
     });
+    
+    if (this.placesService.isUserLocationReady){
+      this.userLocation = this.placesService.getUserLocation();
+      this.latlng = new google.maps.LatLng(this.userLocation![0], this.userLocation![1]);
+      this.geocoder
+        .geocode({location: this.latlng})
+        .then((response) => {
+          if(response.results[0]){
+            this.address = response.results[0].formatted_address;
+          }else{
+            alert("No address found");
+          }
+        })
+        .catch((e) => alert("Geocoder failed due to: "+e));
 
-    this.placesService.getUserLocationService()
+    }else{
+      this.placesService.getUserLocationService()
       .then(location => {
         // this.userLocation = location;
         // console.log("User location:", this.userLocation);
@@ -69,6 +87,7 @@ export class DireccionesComponent implements OnInit{
       .catch(error => {
         console.error("Error getting user location:", error);
       });
+    }    
     
   }
 
@@ -106,6 +125,6 @@ export class DireccionesComponent implements OnInit{
   }
 
   showMap(event:any){
-    console.log("redirigir a mapa xd")
+    this.router.navigate(['viaje']);
   }
 }

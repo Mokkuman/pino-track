@@ -12,6 +12,7 @@ import { UpgradeComponent } from './sidebar/pages/upgrade/upgrade.component';
 import { PrivacidadComponent } from './sidebar/pages/config/pages/privacidad/privacidad.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DireccionesComponent } from './direcciones/direcciones.component';
+import { MapComponent } from './map/map.component';
 export const routes: Routes = [
     {
         path: '',
@@ -20,6 +21,10 @@ export const routes: Routes = [
     {
         path: 'dirs',
         component: DireccionesComponent
+    },
+    {
+        path: 'viaje',
+        component: MapComponent
     },
     {
         path: 'login',

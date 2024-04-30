@@ -37,8 +37,7 @@ export class PlacesService {
     });
   }
 
-  public getPlacesByQuery(query: string = ''){
-    // todo: cuando query es vacio, que sea required el campo y que muestre alerta
-    // this.http.get()
+  public getUserLocation(): [number, number] | undefined{
+    return this.userLocation;
   }
 }
