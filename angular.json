@@ -82,7 +82,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/pinoTrack.png",
+              "src/assets/pinoTrack.jpg",
               "src/assets/main.js"
             ],
             "styles": [
